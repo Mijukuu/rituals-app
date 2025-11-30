@@ -1,6 +1,13 @@
 // Electron Setup
-const {app, BrowserWindow} = require('electron');
+const {app, BrowserWindow, ipcMain} = require('electron');
 const path = require('path');
+
+// Save Setup
+const fs = require("fs");
+const os = require("os");
+
+// Start 
+const dataPath = path.join(app.getPath("userData"), "rituals.json");
 
 function createWindow() {
     const win = new BrowserWindow({
@@ -16,6 +23,21 @@ function createWindow() {
     });
     win.loadFile('./renderer/index.html');
 }
+
+// Save tasks (Hybrid Saving model)
+ipcMain.on("save-tasks", (event, tasks) => {
+    fs.writeFileSync(dataPath, JSON.stringify(tasks, null, 2));
+});
+
+// Load tasks 
+ipcMain.handle("load-tasks", async() => {
+    if (!fs.existsSync(dataPath)) {
+        return [];
+    }
+
+    const data = fs.readFileSync(dataPath, "utf8");
+    return JSON.parse(data);
+});
 
 app.whenReady().then(() => {
     createWindow();
