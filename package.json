@@ -1,0 +1,24 @@
+{
+  "name": "rituals-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mijukuu/rituals-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mijukuu/rituals-app/issues"
+  },
+  "homepage": "https://github.com/Mijukuu/rituals-app#readme",
+  "devDependencies": {
+    "electron": "^39.2.4"
+  }
+}
