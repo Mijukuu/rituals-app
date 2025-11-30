@@ -133,3 +133,96 @@ TASK CARD CSS STYLING
   opacity: 0;
   transform: translateX(-15px);
 }
+
+/*
+RITUAL SEAL SAVE BUTTON
+*/
+#save-btn.seal {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #1a1a24, #0f0f15);
+  box-shadow:
+    inset 0 0 12px #9f7cff55,
+    0 0 20px #000000aa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 25px auto;
+  cursor: pointer;
+  transition: 0.3s ease;
+  border: 1px solid #2e2e40;
+  animation: float 4s ease-in-out infinite;
+}
+
+#save-btn.seal:hover {
+  box-shadow:
+    inset 0 0 20px #b993ffaa,
+    0 0 25px #9f7cff55;
+  transform: scale(1.08);
+}
+
+.seal-glyph {
+  font-size: 24px;
+  color: #bda2ff;
+  text-shadow: 0 0 8px #9f7cff;
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+
+#save-btn.seal:active {
+  transform: scale(0.96);
+  box-shadow:
+    inset 0 0 35px #c5a8ff,
+    0 0 40px #9f7cff99;
+}
+
+#save-btn.seal:active .seal-glyph {
+  text-shadow: 0 0 14px #d8c4ff;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 15px #9f7cff44; }
+  50% { box-shadow: 0 0 25px #9f7cff88; }
+  100% { box-shadow: 0 0 15px #9f7cff44; }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+
+#save-btn.seal.saved {
+  animation: pulse 1.3s ease;
+}
+
+/* Fade-in materialization */
+.fade-in {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: appear 0.35s ease forwards;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+/*
+Header Styling
+*/
+#ritual-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
